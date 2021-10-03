@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: test3api 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test3api
+  template:
+    metadata:
+      labels:
+        app: test3api 
+    spec:
+      containers:
+        - name: test3api 
+          image: coreapiregistry.azurecr.io/test3api
+          ports:
+          - containerPort: 80
