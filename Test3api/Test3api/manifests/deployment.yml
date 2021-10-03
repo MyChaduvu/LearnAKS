@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test3api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: test3api-pod
+  template:
+    metadata:
+      labels:
+        app: test3api-pod
+    spec:
+      containers:
+      - name: test3api-container
+        image: coreapiregistry.azurecr.io/test3api:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
